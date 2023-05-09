@@ -27,9 +27,10 @@ async def cptcode(value):
 
 @app.get('/sex/{value}/county_code/{value2}')
 async def cptcode2(value, value2):
-    print ('value: ', value)
+    #print ('value: ', value)
     filtered = df[df['sex'] == value]
-    filtered2 = filtered[filtered['county_code'] == value2]
+    value2_string = int(value2)
+    filtered2 = filtered[filtered['county_code'] == value2_string]
     if len(filtered2) <= 0:
         return 'There is nothing here'
     else: 
